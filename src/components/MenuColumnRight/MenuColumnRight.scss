@@ -1,6 +1,40 @@
-.menu-right{
-    display: flex;
+.menu-right {
+  display: flex;
+  border-left: solid 1px #a9a9a9;
+  background-color: #f4f4f4;
+
+  &__container {
+    padding: 80px 10px 10px 10px;
+    box-sizing: border-box;
+    height: fit-content;
+    width: 100%;
     
-    min-height: 400px;
-    background-color: chartreuse;
+  }
+
+  &__navigation {
+    display: flex;
+    flex-direction: column;
+    padding: 18px;
+    box-sizing: border-box;
+    background-color: #fff;
+    border-radius: 12px;
+       
+  }
+
+  &__link {
+    font-size: 14px;
+    line-height: 1.5;
+    padding: 8px 14px;
+    font-weight: 700;
+    color: #656565;
+    text-decoration: none;
+    cursor: pointer;
+    margin: 2px 0;
+    border-radius: 6px;
+
+    &_active {
+      background-color: #545454;
+      color: #fdfdfd;
+    }
+  }
 }

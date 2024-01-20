@@ -1,11 +1,15 @@
 import React from "react";
-import './AboutMe.scss';
+import "./AboutMe.scss";
 
 function AboutMe() {
-    return (
-       <div className="about"><h2>Страница</h2></div>
-
-    )
+  return (
+    <div className="about">
+      <h2 className="about__title">
+        Страница hhhhhhhhhhhhhhhh gggggggggggggggggg gggggggggggggggggggggg
+        gggggggggggggggggg ggggggggggggggggggggggggggggggggggggggggggggg
+      </h2>
+    </div>
+  );
 }
 
 export default AboutMe;
