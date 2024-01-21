@@ -7,20 +7,20 @@
   grid-template-columns: 20% 55% 25%;
   grid-template-rows: 80px 1fr;
   background-color: #f4f4f4;
-  
-    
-}
-.main{
-  display: flex;
-  //grid-column-start: 2;
- // grid-column-end: 3;
- width: 100%;
- background-color:#f4f4f4;
+
+
 }
 
-.rrr{
-  
- 
+.main {
+  display: flex;
+  position: relative;
+  width: 100%;
+  background-color: #f4f4f4;
+}
+
+.rrr {
+
+
   min-height: 300px;
- 
+
 }

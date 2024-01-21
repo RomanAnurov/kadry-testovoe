@@ -9,7 +9,7 @@ function MenuColumnLeft() {
             <Logo />
         <nav className="menu-left__navigation">
             <h3 className="menu-left__title">Профиль</h3>
-            <NavLink to="/"  className={({isActive}) =>`menu-left__link ${isActive ? "menu-left__link_active" : ''}`} >Обо мне</NavLink>
+            <NavLink to="/aboutme"  className={({isActive}) =>`menu-left__link ${isActive ? "menu-left__link_active" : ''}`} >Обо мне</NavLink>
             <NavLink to="/documents"  className={({isActive}) =>`menu-left__link ${isActive ? "menu-left__link_active" : ''}`} >Документы</NavLink>
             <h3 className="menu-left__title">Моя работа</h3>
             <NavLink to="/objects"  className={({isActive}) =>`menu-left__link ${isActive ? "menu-left__link_active" : ''}`} >Объекты</NavLink>

@@ -1,26 +1,24 @@
 import React from "react";
 import "./AboutMe.scss";
-import arrowBackIcon from '../../images/arrowBack.svg'
+import { Outlet } from "react-router-dom";
+
 
 function AboutMe() {
+  
   return (
     <div className="about">
-      <div className="about__nav">
-      <button className="about__button" type="button">
-        
-          <img
-            className="about__button-icon"
-            src={arrowBackIcon}
-            alt="иконка список"
-          />
-          
-          Назад
-        </button>
-      <h2 className="about__title">
-     Редактировать профиль
-      </h2>
-      </div>
+      <h2 className='about__title'>Заголовок страницы</h2>
+      <p className='about__text'>На этой сранице будет общая информация о пользователе</p>
+      <p className='about__text'>На этой сранице будет общая информация о пользователе</p>
+      <p className='about__text'>На этой сранице будет общая информация о пользователе</p>
+      <p className='about__text'>На этой сранице будет общая информация о пользователе</p>
+      <p className='about__text'>На этой сранице будет общая информация о пользователе</p>
+      <p className='about__text'>На этой сранице будет общая информация о пользователе</p>
+      <>
+        <Outlet  />
+      </>
     </div>
+
   );
 }
 

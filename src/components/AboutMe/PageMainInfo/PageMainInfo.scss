@@ -1,0 +1,48 @@
+.main-info {
+    padding: 24px 32px;
+
+    &__nav {
+        display: flex;
+        align-items: center;
+        margin-bottom: 32px;
+      }
+    
+      &__title {
+        margin: 0;
+        font-size: 32px;
+        font-weight: 700;
+        text-align: center;
+        cursor: pointer;
+      }
+
+      &__button {
+        border: solid 1px #7373738a;
+        border-radius: 4px;
+       margin-right: 16px;
+        background: none;
+        color: #696969;
+        font-size: 14px;
+        font-weight: 700;
+        line-height: 1.2;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 4px 10px;
+        box-sizing: border-box;
+        cursor: pointer;
+      }
+    
+      &__button-icon {
+        margin-right: 6px;
+        width: 12px;
+        opacity: 0.6;
+    
+      }
+    
+   p {
+    font-size: 20px;
+    margin: 0;
+   }
+
+}
