@@ -7,7 +7,7 @@ function PageMainInfo(props) {
   return (
     <div className="main-info">
          <div className="main-info__nav">
-        <button className="main-info__button" type="button"  onClick={onPopupOpen}>
+        <button className="main-info__button" type="button">
           <img
             className="main-info__button-icon"
             src={arrowBackIcon}
@@ -20,6 +20,10 @@ function PageMainInfo(props) {
       <p>
         Я человек с простой мечтой — поделиться своими знаниями в области эмодзи с миром!
       </p>
+      <p>
+        Нажмите на строчку Редактировать профиль и откроется Popup c формой
+      </p>
+      
     </div>
   )
 }

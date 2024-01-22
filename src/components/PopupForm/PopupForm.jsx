@@ -132,7 +132,7 @@ function PopupForm(props) {
           <span className="form__area-span">0/500</span>
 
           <fieldset className="form__fieldset-buttons">
-            <button className="form__button" type="button">Отмена</button>
+            <button className="form__button" type="button" onClick={onClose}>Отмена</button>
             <button className="form__button form__button_type_save" type="submit" >Сохранить</button>
 
           </fieldset>
