@@ -46,7 +46,7 @@ function App() {
       <MenuColumnLeft />
       <main className="main">
         <Routes>
-          <Route  path="/" element={''}/>
+          <Route  path="/" element={<AboutMe  />}/>
           <Route  path="/aboutme" element={<AboutMe  />}/>
             <Route  path="/aboutme/main-info" element={<PageMainInfo isOpen={isPopupOpen} onPopupOpen={handlePopupOpen} />} />
             <Route  path="/aboutme/grade-documents" element={<PageGradeDocuments />} />
