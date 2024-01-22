@@ -14,4 +14,3 @@
 
 Open [http://localhost:3000](http://localhost:3000)  в вашем браузере.
 
-Сайт на gh pages [https://romananurov.github.io/kadry-testovoe]
