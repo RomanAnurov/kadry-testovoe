@@ -36,10 +36,6 @@ function App() {
         <PopupForm isOpen={isPopupOpen} onClose={handlePopupClose} />
       </main>
       <MenuColumnRight />
-
-      <div className="rrr"></div>
-
-      
     </div>
   );
 }

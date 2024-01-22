@@ -1,9 +1,28 @@
-import React from "react";
+import React, { useState } from "react";
 import "./PopupForm.scss";
+import profileIcon from '../../images/profile.svg';
 
 function PopupForm(props) {
   const { isOpen, onClose } = props;
 
+  const [image, setImage] = useState();
+  const [imageUrl, setImageUrl] = useState();
+  const fileReader = new FileReader();
+  fileReader.onloadend = () => {
+    setImageUrl(fileReader.result);
+  }
+
+  const handleOnChange = (evt) => {
+    evt.preventDefault();
+    console.log('change', evt.target.files);
+    if (evt.target.files && evt.target.files.length) {
+
+      const file = evt.target.files[0];
+      setImage(file);
+      fileReader.readAsDataURL(file);
+
+    }
+  }
   return (
     <section className={`popup  ${isOpen ? "popup_type_opened" : ""}`}>
       <div
@@ -11,8 +30,23 @@ function PopupForm(props) {
         onMouseDown={(evt) => evt.stopPropagation()}
       >
         <h2 className="popup__title">Основная информация</h2>
-        <form className="form">
-          <fieldset className="form__avatar-upload"></fieldset>
+        <form className="form" name="form" noValidate>
+          <fieldset className="form__avatar-upload">
+            <img className="form__avatar" src={imageUrl ? imageUrl : profileIcon} alt="аватар" />
+            <div className="form__upload-block">
+              <span className="form__upload-span">Перетащите или выберите фото на компьютере</span>
+              <div className="form__upload-button">
+                <label className="form__label form__label_type_avatar" htmlFor="avatar">
+                  <input className="form__input form__input_type_avatar"
+                    type="file"
+                    id="avatar"
+                    onChange={handleOnChange} />
+                </label>
+                <span className="form__avatar-span">Выбрать файл</span>
+              </div>
+            </div>
+
+          </fieldset>
           <fieldset className="form__user-names">
             <fieldset className="form__user-name form__user-name_type_one">
               <label className="form__label" htmlFor="last-name">Фамилия</label>
@@ -79,12 +113,12 @@ function PopupForm(props) {
 
             <fieldset className="form__user-name">
               <label className="form__label" htmlFor="grafic">График работы</label>
-              <select className="form__input"  id="grafic">
-              <option value=""></option>
-              <option value="График 1">График 1</option>
-              <option value="График 2">График 2</option>
-              <option value="График 3">График 3</option>
-            </select>
+              <select className="form__input" id="grafic">
+                <option value=""></option>
+                <option value="График 1">График 1</option>
+                <option value="График 2">График 2</option>
+                <option value="График 3">График 3</option>
+              </select>
             </fieldset>
 
             <fieldset className="form__user-name">
@@ -93,12 +127,15 @@ function PopupForm(props) {
             </fieldset>
           </fieldset>
           <label className="form__label" htmlFor="area">О себе</label>
-          
-<textarea className="form__area" id="area" rows="5" maxLength='500'></textarea>
 
+          <textarea className="form__area" id="area" rows="5" maxLength='500'></textarea>
+          <span className="form__area-span">0/500</span>
 
+          <fieldset className="form__fieldset-buttons">
+            <button className="form__button" type="button">Отмена</button>
+            <button className="form__button form__button_type_save" type="submit" >Сохранить</button>
 
-
+          </fieldset>
         </form>
       </div>
     </section>
