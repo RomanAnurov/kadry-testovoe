@@ -7,11 +7,11 @@ import Header from "../Header/Header";
 import AboutMe from "../AboutMe/AboutMe";
 import MenuColumnRight from "../MenuColumnRight/MenuColumnRight";
 import PopupForm from "../PopupForm/PopupForm";
-import PageMainInfo from "../AboutMe/PageMainInfo/PageMainInfo"; 
+import PageMainInfo from "../AboutMe/PageMainInfo/PageMainInfo";
 import PageGradeDocuments from "../AboutMe/PageGradeDocuments/PageGradeDocuments";
 function App() {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
-  
+
   function handlePopupOpen() {
     setIsPopupOpen(true);
   }
@@ -20,38 +20,37 @@ function App() {
     setIsPopupOpen(false);
   }
 
-    // Закрытие попаов при клике вне попапа
+  // Закрытие попаов при клике вне попапа
 
-    const handleMouseClose = useCallback((event) => {
-      if (
-        event.target.classList.contains("popup") ||
-       !event.target.classList.contains("main-info__title") 
-      ) {
-        handlePopupClose();
-      }
-    }, []);
-  
-    useEffect(() => {
-      
-      if (isPopupOpen) {
-        document.addEventListener("mousedown", handleMouseClose);
-      } else {
-        document.removeEventListener("mousedown", handleMouseClose);
-      }
-    }, [isPopupOpen, handleMouseClose, ]);
+  const handleMouseClose = useCallback((event) => {
+    if (
+      event.target.classList.contains("popup") ||
+      !event.target.classList.contains("main-info__title")
+    ) {
+      handlePopupClose();
+    }
+  }, []);
 
+  useEffect(() => {
+
+    if (isPopupOpen) {
+      document.addEventListener("mousedown", handleMouseClose);
+    } else {
+      document.removeEventListener("mousedown", handleMouseClose);
+    }
+  }, [isPopupOpen, handleMouseClose,]);
   return (
     <div className="page__content">
       <Header />
       <MenuColumnLeft />
       <main className="main">
         <Routes>
-          <Route exact path="/" element={<AboutMe  />}/>
-          <Route exact path="/aboutme" element={<AboutMe  />}/>
-          <Route exact path="/aboutme/main-info" element={<PageMainInfo isOpen={isPopupOpen} onPopupOpen={handlePopupOpen} />} />
-          <Route exact path="/aboutme/grade-documents" element={<PageGradeDocuments />} />
-          <Route  exact path="/aboutme/education" element={<PageGradeDocuments />} />
-          <Route exact path="/documents" element={<AboutMe />} />
+          <Route exact path="/" element={<AboutMe />} />
+          <Route path="/aboutme" element={<AboutMe />} />
+          <Route path="/aboutme/main-info" element={<PageMainInfo isOpen={isPopupOpen} onPopupOpen={handlePopupOpen} />} />
+          <Route path="/aboutme/grade-documents" element={<PageGradeDocuments />} />
+          <Route path="/aboutme/education" element={<PageGradeDocuments />} />
+          <Route path="/documents" element={<AboutMe />} />
         </Routes>
         <PopupForm isOpen={isPopupOpen} onClose={handlePopupClose} />
       </main>

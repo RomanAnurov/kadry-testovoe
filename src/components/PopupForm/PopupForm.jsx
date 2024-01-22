@@ -11,12 +11,14 @@ function PopupForm(props) {
   fileReader.onloadend = () => {
     setImageUrl(fileReader.result);
   }
-
+  const handleSubmit = (evt) => {
+    console.log(evt.target)
+  }
   const handleOnChange = (evt) => {
     evt.preventDefault();
-    
-    if (evt.target.files && evt.target.files.length) {
 
+    if (evt.target.files && evt.target.files.length) {
+      console.log(evt.target.files[0])
       const file = evt.target.files[0];
       setImage(file);
       fileReader.readAsDataURL(file);
@@ -30,7 +32,7 @@ function PopupForm(props) {
         onMouseDown={(evt) => evt.stopPropagation()}
       >
         <h2 className="popup__title">Основная информация</h2>
-        <form className="form" name="form" noValidate>
+        <form className="form" name="form" onSubmit={handleSubmit} noValidate>
           <fieldset className="form__avatar-upload">
             <img className="form__avatar" src={imageUrl ? imageUrl : profileIcon} alt="аватар" />
             <div className="form__upload-block">
@@ -133,7 +135,7 @@ function PopupForm(props) {
 
           <fieldset className="form__fieldset-buttons">
             <button className="form__button" type="button" onClick={onClose}>Отмена</button>
-            <button className="form__button form__button_type_save" type="submit" >Сохранить</button>
+            <button className="form__button form__button_type_save" onClick={onClose} type="submit" >Сохранить</button>
 
           </fieldset>
         </form>
