@@ -46,12 +46,12 @@ function App() {
       <MenuColumnLeft />
       <main className="main">
         <Routes>
-          <Route  path="/" element={<AboutMe  />}/>
-          <Route  path="/aboutme" element={<AboutMe  />}/>
-            <Route  path="/aboutme/main-info" element={<PageMainInfo isOpen={isPopupOpen} onPopupOpen={handlePopupOpen} />} />
-            <Route  path="/aboutme/grade-documents" element={<PageGradeDocuments />} />
-            <Route  path="/aboutme/education" element={<PageGradeDocuments />} />
-            <Route path="/documents" element={<AboutMe />} />
+          <Route exact path="/" element={<AboutMe  />}/>
+          <Route exact path="/aboutme" element={<AboutMe  />}/>
+          <Route exact path="/aboutme/main-info" element={<PageMainInfo isOpen={isPopupOpen} onPopupOpen={handlePopupOpen} />} />
+          <Route exact path="/aboutme/grade-documents" element={<PageGradeDocuments />} />
+          <Route  exact path="/aboutme/education" element={<PageGradeDocuments />} />
+          <Route exact path="/documents" element={<AboutMe />} />
         </Routes>
         <PopupForm isOpen={isPopupOpen} onClose={handlePopupClose} />
       </main>

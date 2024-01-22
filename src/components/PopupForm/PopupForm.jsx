@@ -14,7 +14,7 @@ function PopupForm(props) {
 
   const handleOnChange = (evt) => {
     evt.preventDefault();
-    console.log('change', evt.target.files);
+    
     if (evt.target.files && evt.target.files.length) {
 
       const file = evt.target.files[0];
