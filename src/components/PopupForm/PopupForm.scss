@@ -78,6 +78,13 @@
 
     justify-content: center;
     align-items: center;
+
+    &_active {
+      opacity: 0.6;
+      transition: 0.4s opacity;
+      border: dashed 5px rgb(26, 92, 226);
+
+    }
   }
 
   &__upload-span {

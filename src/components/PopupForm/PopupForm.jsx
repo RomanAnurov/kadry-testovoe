@@ -7,6 +7,8 @@ function PopupForm(props) {
 
   const [image, setImage] = useState();
   const [imageUrl, setImageUrl] = useState();
+  const [drag, setDrag] = useState(false);
+
   const fileReader = new FileReader();
   fileReader.onloadend = () => {
     setImageUrl(fileReader.result);
@@ -26,6 +28,31 @@ function PopupForm(props) {
 
     }
   }
+
+  const handleDrop = (evt) => {
+    evt.preventDefault();
+    evt.stopPropagation();
+    if (evt.dataTransfer.files && evt.dataTransfer.files.length) {
+      setImage(evt.dataTransfer.files[0]);
+      fileReader.readAsDataURL(evt.dataTransfer.files[0])
+    }
+    setDrag(false);
+
+  }
+
+  const handleDragEmpty = (evt) => {
+    evt.preventDefault();
+    evt.stopPropagation();
+    setDrag(true)
+  };
+  const handleDragLeave = (evt) => {
+    evt.preventDefault();
+    evt.stopPropagation();
+    setDrag(false)
+  };
+
+
+
   return (
     <section className={`popup  ${isOpen ? "popup_type_opened" : ""}`}>
       <div
@@ -36,7 +63,12 @@ function PopupForm(props) {
         <form className="form" name="form" onSubmit={handleSubmit} noValidate>
           <fieldset className="form__avatar-upload">
             <img className="form__avatar" src={imageUrl ? imageUrl : profileIcon} alt="аватар" />
-            <div className="form__upload-block">
+            <div className={`form__upload-block ${drag ? "form__upload-block_active" : ''}`}
+              onDrag={handleDragEmpty}
+              onDrop={handleDrop}
+              onDragOver={handleDragEmpty}
+              onDragLeave={handleDragLeave}>
+
               <span className="form__upload-span">Перетащите или выберите фото на компьютере</span>
               <div className="form__upload-button">
                 <label className="form__label form__label_type_avatar" htmlFor="avatar">
@@ -136,7 +168,7 @@ function PopupForm(props) {
 
           <fieldset className="form__fieldset-buttons">
             <button className="form__button" type="button" onClick={onClose}>Отмена</button>
-            <button className="form__button form__button_type_save"  type="submit" >Сохранить</button>
+            <button className="form__button form__button_type_save" type="submit" >Сохранить</button>
 
           </fieldset>
         </form>

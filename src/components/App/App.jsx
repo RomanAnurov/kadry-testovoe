@@ -52,7 +52,7 @@ function App() {
           <Route path="/aboutme/education" element={<PageGradeDocuments />} />
           <Route path="/documents" element={<AboutMe />} />
         </Routes>
-        <PopupForm isOpen={isPopupOpen} handlePopupClose={handlePopupClose} />
+        <PopupForm isOpen={isPopupOpen} handlePopupClose={handlePopupClose} onClose={handlePopupClose} />
       </main>
       <MenuColumnRight />
     </div>
