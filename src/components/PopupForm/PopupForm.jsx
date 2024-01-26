@@ -3,7 +3,7 @@ import "./PopupForm.scss";
 import profileIcon from '../../images/profile.svg';
 
 function PopupForm(props) {
-  const { isOpen, onClose } = props;
+  const { isOpen, onClose, handlePopupClose } = props;
 
   const [image, setImage] = useState();
   const [imageUrl, setImageUrl] = useState();
@@ -13,12 +13,13 @@ function PopupForm(props) {
   }
   const handleSubmit = (evt) => {
     console.log(evt.target)
+    handlePopupClose();
   }
   const handleOnChange = (evt) => {
     evt.preventDefault();
 
     if (evt.target.files && evt.target.files.length) {
-      console.log(evt.target.files[0])
+      //console.log(evt.target.files[0])
       const file = evt.target.files[0];
       setImage(file);
       fileReader.readAsDataURL(file);
@@ -135,7 +136,7 @@ function PopupForm(props) {
 
           <fieldset className="form__fieldset-buttons">
             <button className="form__button" type="button" onClick={onClose}>Отмена</button>
-            <button className="form__button form__button_type_save" onClick={onClose} type="submit" >Сохранить</button>
+            <button className="form__button form__button_type_save"  type="submit" >Сохранить</button>
 
           </fieldset>
         </form>
